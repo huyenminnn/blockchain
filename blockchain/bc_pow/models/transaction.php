@@ -32,11 +32,5 @@
 			$result = $this->conn->query($sql);
 			return $result;
 		}
-
-		function insert($data){
-			$sql = "INSERT INTO transactions (data,isValid) VALUES ('".$data['data']."',".$data['isValid'].")";
-			$result = $this->conn->query($sql);
-			return $result;
-		}
 	}
  ?>

@@ -41,11 +41,5 @@
 			$result = $this->conn->query($sql);
 			return $result;
 		}
-
-		function find($data){
-			$sql = "SELECT * FROM blocks WHERE height=".$data;
-			$result = $this->conn->query($sql)->fetch_assoc();
-			return $result;
-		}
 	}
  ?>

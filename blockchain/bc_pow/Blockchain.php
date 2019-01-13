@@ -21,13 +21,8 @@
 			if (!count($data)) {
 				include_once('views/createBC.php');
 			} else {
-				include_once('views/bc.php');
+				$this->mine();
 			}
-		}
-
-		function show(){
-			$data = $this->blocks;
-			include_once('views/bc.php');
 		}
 
 		function create(){
@@ -35,8 +30,6 @@
 			$newBlock = json_decode($block->genesisBlock(0,'',genesisData));
 			$this->blockModel->insert($newBlock);
 			$this->mine();
-			$data = $this->blockModel->getAll();
-			header('location: ?act=show');
 		}
 
 		function getLastBlock(){
@@ -71,18 +64,6 @@
 			        $this->addBlock();
 			    }
 			}
-		}
-
-		function detail(){
-			$id = $_GET['id'];
-			$result = $this->blockModel->find($id);
-			$data = json_decode($result['data']);
-			$res = '<p>';
-			foreach ($data as $key => $value) {
-				$res .= "Transaction ".$value->id.": ".$value->data."</br>";
-			}
-			$res .= "</p>";
-			echo $res;
 		}
 	}
  ?>

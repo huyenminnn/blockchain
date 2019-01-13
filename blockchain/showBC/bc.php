@@ -18,23 +18,7 @@
 <body>
     <div class="container">
         <h2 align="center">BLOCKCHAIN</h2>
-        <form action="?act=addTx" method="POST" role="form" enctype="multipart/form-data">
-        	<div class="form-group">
-                <label for="">Create transaction</label>
-                <input type="text" class="form-control" id="" placeholder="Data" name="data">
-            </div>
-        	<button type="submit" class="btn btn-primary">Lưu thông tin</button>
-        </form>
-       
-        <?php 
-        if (isset($_COOKIE['msg'])) {
-    ?>
-    <div class="alert alert-success">
-  <strong>Success!</strong> <?php echo $_COOKIE['msg']; ?>
-</div>
-    <?php        
-        }
-     ?>
+        
         <table class="table" >
             <thead style="font-size: 15px;">
               <tr>
@@ -99,7 +83,7 @@
         var code = $(this).attr("data-id");
          $.ajax({
           type: "GET",
-          url: "index.php?act=detail&id="+code,
+          url: "detail.php?id="+code,
           data:{
 
           },
